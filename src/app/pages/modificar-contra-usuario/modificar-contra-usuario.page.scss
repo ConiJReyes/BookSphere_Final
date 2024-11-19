@@ -1,0 +1,41 @@
+ion-content {
+    background-color: #f6e9d1; /* Color de fondo */
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px; /* Bordes redondeados del contenedor */
+    background-color: #ffffff; /* Fondo blanco del contenedor */
+    max-width: 500px; /* Ancho máximo del contenedor */
+    margin: auto;
+  }
+  
+  .app-logo {
+    width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+    margin-bottom: 20px; /* Espacio debajo del logo */
+  }
+  
+  .form-item {
+    margin-bottom: 15px; /* Espacio entre los campos de entrada */
+  }
+  
+  ion-button {
+    margin-top: 10px; /* Espacio superior del botón */
+  }
+
+p{
+  color: black;
+  font-size: small;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+container-p{
+  display: flex;
+  flex-direction: column; /* Coloca los párrafos en una columna */
+  align-items: flex-start;
+}

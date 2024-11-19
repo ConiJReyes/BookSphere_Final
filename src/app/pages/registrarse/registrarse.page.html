@@ -1,0 +1,94 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear Cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- Contenedor principal con fondo -->
+  <div class="container">
+    <!-- Logo de la app -->
+    <img src="assets/img/logoapp.png" alt="Logo" class="app-logo" />
+
+    <!-- Formulario de Crear Cuenta -->
+    <form>
+      <ion-item class="form-item">
+        <ion-input
+          label="Nombre"
+          type="text"
+          labelPlacement="floating"
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Ingrese el usuario"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-input
+          label="Correo"
+          type="text"
+          labelPlacement="floating"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Ingrese su correo"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          [type]="mostrarContra ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="password"
+          labelPlacement="floating"
+          placeholder="Ingrese la contraseña"
+        >
+        <ion-button fill="clear" slot="end" (click)="toggleMostrarContra()">
+          <ion-icon [name]="mostrarContra ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button></ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">Repetir Contraseña</ion-label>
+        <ion-input
+          [type]="mostrarRepetirContra ? 'text' : 'password'"
+          [(ngModel)]="passwordR"
+          name="passwordR"
+          placeholder="Repita la contraseña"
+          labelPlacement="floating"
+          ><ion-button
+            fill="clear"
+            slot="end"
+            (click)="toggleMostrarRepetirContra()"
+          >
+            <ion-icon
+              [name]="mostrarRepetirContra ? 'eye-off' : 'eye'"
+            ></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+
+      <ion-button
+        shape="round"
+        expand="full"
+        style="--background: #dfaa64"
+        type="submit"
+        (click)="validacionDatosCorreo()"
+        >Crear Cuenta</ion-button
+      >
+    </form>
+    <div class="container-p">
+      <p *ngIf="correoValido">-Ingrese un correo válido</p>
+      <p *ngIf="contraValida">
+        -La contraseña debe tener al menos 8 caracteres, incluyendo una
+        mayúscula, una minúscula, un número y un carácter especial.
+      </p>
+      <p *ngIf="contraIgual">
+        -Las contraseñas no coinciden, intentelo nuevamente.
+      </p>
+    </div>
+  </div>
+</ion-content>

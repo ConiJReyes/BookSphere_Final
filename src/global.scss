@@ -1,0 +1,77 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+
+/*  Este es para el fondo de toda la app */
+ion-content {
+    --background: #f6e9d1;
+   }
+   
+   
+   //  Este es para el fondo del toolback de toda la app
+   ion-toolbar {
+       --background: #d3bc91;
+       --color: #6D4C41; 
+   }
+   
+   // Este es el nombre del cuadro donde estan todos los item del side menu, saque el nombre a traves de los elementos del inspeccionar
+   // Es para cambiar el fondo de esa parte, pero no de los item que tiene, como el iniciar sesion, crear usuario, etc, sino del fondo
+   ion-list.md.list-md.hydrated {
+       background-color:#f6e9d1;
+   }
+   
+   
+   // Este es para cambiar el fondo de los items del side menu, osea el iniciar sesion, crear usuario, etc
+   ion-item{
+       --background:  ;
+       --color: #6D4C41; 
+   }
+   ion-label{
+    --color: #6D4C41;
+    --font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   }
+
+   ion-title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   }
+   
+   // Este es la parte para cambiar el color del icono de los items del side menu, lo saque a traves de los elementos de la pagina
+   ion-icon.md.hydrated {
+       color: #6D4C41;  
+   }
+

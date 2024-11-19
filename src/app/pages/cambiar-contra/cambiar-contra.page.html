@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+
+    <img src="assets/img/logoapp.png" alt="Logo" class="app-logo" />
+
+    <!-- Formulario de Iniciar Sesión -->
+    <form>
+
+      <h1>Cambie Su contraseña</h1>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          [type]="mostrarContra ? 'text' : 'password'"
+          [(ngModel)]="contra"
+          name="contra"
+          labelPlacement="floating"
+          placeholder="Ingrese nueva contraseña"
+        ><ion-button fill="clear" slot="end" (click)="toggleMostrarContra()">
+          <ion-icon [name]="mostrarContra ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
+      </ion-input>
+      </ion-item>
+      
+      <ion-item class="form-item">
+        <ion-label position="floating">Repetir Contraseña</ion-label>
+        <ion-input
+          [type]="mostrarRepetirContra ? 'text' : 'password'"
+          [(ngModel)]="repetircontra"
+          name="repetircontra"
+          labelPlacement="floating"
+          placeholder="Ingrese nueva contraseña nuevamente"
+        ><ion-button fill="clear" slot="end" (click)="toggleMostrarRepetirContra()">
+          <ion-icon [name]="mostrarRepetirContra ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
+      </ion-input>   
+      </ion-item>
+      
+      
+      <ion-button expand="full" style="--background: #dfaa64;" (click)="CambiarContra()">Cambiar contraseña</ion-button>
+
+      <div>
+        <p *ngIf="contraIgual">-Las contraseñas deben ser iguales</p>
+        <p *ngIf="contraAntiguaIgual">-La contraseña no debe ser igual a la anterior</p>
+        <p *ngIf="contraValidacion">-La contraseña debe tener minusculas, mayusculas, mas de 8 caracteres y minimo un caracter especial(&#64;#$!%*_?&)</p>
+      </div>
+
+    </form>
+
+
+
+
+  </div>
+</ion-content>

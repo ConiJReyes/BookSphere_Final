@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Detalles Libro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="portada-container">
+    <ion-img *ngIf="libro?.portada" [src]="libro?.portada" class="portada-img"></ion-img>
+  </div>
+  <ion-card class="info-card">
+
+    <ion-card-content>
+      <h6>{{ libro?.titulo }}</h6>
+      <p>{{ libro?.autor }} | {{ libro?.nombre_categoria }} | {{ libro?.cantidad_paginas }} páginas </p>
+      <p>ISBN: {{ libro?.ISBN }} </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="descripcion-libro-api">
+    <ion-card-content>
+      <p>{{ libro?.sinopsis || libro?.descripcion }}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+
+
+  <div class="sinopsislibro">
+    <div class="button-container">
+      <ion-button class="custom-button" (click)="anadirGuardados()">Guardar Libro</ion-button>
+    </div>
+
+  </div>
+
+  <!-- Reseñas del Libro-->
+  <h2 class="reseñas-titulo">Reseñas del libro</h2>
+  <ion-card *ngFor="let resena of resenas" class="reseña-card info-card">
+    <ion-card-header>
+      <ion-card-title class="reseña-titulo">Reseña de: {{ resena.username }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="reseña-texto">{{ resena.texto_resena }}</ion-card-content>
+    <div class="reseña-fecha-container">
+      <ion-label class="reseña-fecha">{{ resena.fecha_elaboracion_resena | date:'short' }}</ion-label>
+    </div>
+  </ion-card>
+</ion-content>

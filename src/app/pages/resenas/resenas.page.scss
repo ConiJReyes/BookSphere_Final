@@ -1,0 +1,42 @@
+.resenas-content {
+    background-color: #f5f7fa; 
+    padding: 10px; 
+  }
+  
+  .reseña-card {
+    margin: 10px; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f2dcb3; 
+    color: #4a5568; 
+  }
+  
+  .reseña-titulo {
+    font-size: 1.2rem; 
+    font-weight: bold;
+  }
+  
+  .reseña-libro {
+    font-size: 1rem;
+    color: #718096; 
+  }
+  
+  .reseña-fecha-container {
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 10px;
+  }
+  
+  .reseña-fecha {
+    font-size: 0.9rem; 
+    color: #718096; 
+  }
+  
+  
+  
+  .reseña-texto {
+    font-size: 0.9rem; 
+    line-height: 1.5; 
+    color: #4a5568;
+  }
+  

@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="container">
+    
+    <img src="assets/img/logoapp.png" alt="Logo" class="app-logo" />
+
+    
+    <form>
+
+      <h1>Ingrese su correo para poder crear una nueva Contraseña</h1>
+
+      <ion-item class="form-item">
+        <ion-input [(ngModel)]="correo" label="Correo" name="email" labelPlacement="floating" placeholder="Ingrese su correo"></ion-input>
+      </ion-item>
+
+     <ion-button expand="full" style="--background: #dfaa64;" type="submit" (click)="irCambiarContra()">Enviar Correo</ion-button>
+    </form>
+
+  
+
+    
+  </div>
+</ion-content>

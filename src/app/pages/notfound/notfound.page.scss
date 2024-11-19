@@ -1,0 +1,21 @@
+h1{
+    font-size: 20px;
+    line-height: 1.2;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px; /* Bordes redondeados del contenedor */
+    background-color: #ffffff; /* Fondo blanco del contenedor */
+    max-width: 500px; /* Ancho máximo del contenedor */
+    margin: auto;
+}
+.image{
+    border-radius: 3em;
+}

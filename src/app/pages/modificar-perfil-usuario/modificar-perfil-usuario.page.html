@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <div class="container">
+
+    <h1>Modificar Usuario</h1>
+
+    <form>
+      <ion-item class="form-item">
+        <ion-input
+          label="Usuario"
+          labelPlacement="floating"
+          [(ngModel)]="usuario.username"
+          name="username"
+          placeholder="Ingrese el usuario"
+          
+        ></ion-input>
+      </ion-item>    
+    <ion-button color="light" (click)="ingresarImagen()" >Nueva Foto de perfil <ion-icon slot="end" name="image-outline"></ion-icon> </ion-button>
+    <img *ngIf="usuario.foto_perfil" [src]="usuario.foto_perfil" class="perfil-imagen"> 
+
+
+      <ion-button
+        shape="round"
+        expand="full"
+        style="--background: #dfaa64;"
+        type="submit"
+        (click)="ModificarPerfil()"
+        >Cambiar</ion-button
+      >
+      
+    </form>
+
+    <ion-button
+        shape="round"
+        color="success"
+        type="submit"
+        (click)="irModificarContra()"
+        >Modificar Contraseña</ion-button
+      >
+  </div>
+</ion-content>

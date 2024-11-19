@@ -1,0 +1,67 @@
+<div class="ion-page">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Feed</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="ion-padding">
+    <!-- Barra de búsqueda -->
+    <ion-searchbar placeholder="Buscar por Título o ISBN" color="dark" (ionInput)="buscarLibro($event)">
+    </ion-searchbar>
+
+    <!-- Resultados de Búsqueda -->
+    <ng-container *ngIf="hayBusqueda; else seccionOriginal">
+      <ion-grid *ngIf="librosFiltrados.length > 0">
+        <ion-row>
+          <ion-col size="4" *ngFor="let libro of librosFiltrados" (click)="irCadaLibro(libro)">
+            <ion-card>
+              <ion-img [src]="libro.portada"></ion-img>
+              <ion-card-header>
+                <ion-card-title>{{ libro.titulo }}</ion-card-title>
+                <ion-card-subtitle>ISBN: {{ libro.ISBN }}</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-text *ngIf="librosFiltrados.length === 0" color="danger">
+        <p>No se encontraron libros para la búsqueda realizada.</p>
+      </ion-text>
+    </ng-container>
+
+    <!-- Sección original: Solo si no hay búsqueda -->
+    <ng-template #seccionOriginal>
+      <h2>Libros populares</h2>
+      <ion-grid *ngIf="librosPopulares.length > 0">
+        <ion-row>
+          <ion-col size="4" *ngFor="let libro of librosPopulares" (click)="irCadaLibro(libro)">
+            <ion-card>
+              <ion-img [src]="libro.portada"></ion-img>
+              <ion-card-header><ion-card-title>{{ libro.titulo }}</ion-card-title></ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Sección de categorías -->
+      <div class="categories-container">
+        <img [src]="categoriaFoto" class="category-header-image">
+
+        <ion-list>
+          <ion-item *ngFor="let categoria of categorias" (click)="irTodosLosLibros(categoria.id_categoria)" button
+            detail>
+            <ion-label>
+              <h2 class="category-title">{{ categoria.nombre_categoria }}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+
+    </ng-template>
+  </ion-content>
+</div>

@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reseñas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="resenas-content">
+  <ion-card class="reseña-card" *ngFor="let x of resenas">
+    <ion-card-header>
+      <ion-card-title class="reseña-titulo">Reseña de: {{x.username}}</ion-card-title>
+      <ion-card-subtitle class="reseña-libro">Libro: {{x.titulo}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="reseña-texto">{{x.texto_resena}}</ion-card-content>
+    <div class="reseña-fecha-container">
+      <ion-label class="reseña-fecha">{{x.fecha_elaboracion_resena | date:'short'}}</ion-label>
+    </div>
+  </ion-card>
+</ion-content>

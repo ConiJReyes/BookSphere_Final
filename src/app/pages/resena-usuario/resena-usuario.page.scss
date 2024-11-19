@@ -1,0 +1,71 @@
+.review-card {
+  background-color: #f2dcb3;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-date {
+  font-size: 0.9em;
+  color: #718096;
+}
+
+.review-text {
+  font-size: 1em;
+  color: #4a5568;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.pestanaModificar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.pestanaModificar ion-card {
+  width: 90%;
+  max-width: 500px;
+  background-color: #f2dcb3;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modify-item {
+  margin-top: 15px;
+}
+
+ion-textarea {
+  --background: #f2dcb3;
+  --border-radius: 10px;
+  padding: 10px;
+}
+
+ion-button {
+  --border-radius: 12px;
+}
+
+ion-button {
+  --background: #dfaa64;
+  --background-activated: #c79958;
+  --background-focused: #e0b871;
+}
+
+ion-button[color="danger"] {
+  --background: #f44336;
+  --background-activated: #d32f2f;
+  --background-focused: #e57373;
+}

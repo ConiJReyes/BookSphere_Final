@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ver Libros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngIf="arregloLibros.length === 0">
+        <p>No hay libros disponibles.</p> <!-- Mensaje si no hay libros -->
+      </ion-col>
+
+      <!-- Recorremos el arreglo de libros -->
+      <ion-col size="6" size-md="6" size-lg="4" *ngFor="let x of arregloLibros">
+        <ion-card class="libro-card">
+          <ion-img *ngIf="x.portada" [src]="x.portada" class="libro-imagen"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ x.titulo }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ x.nombre_categoria }}</p>
+            <p>ISBN: {{ x.ISBN }}</p>
+            <p>Autor: {{ x.autor }}</p>
+            <p>Páginas: {{ x.cantidad_paginas }}</p>
+          </ion-card-content>
+          <ion-button color="primary" shape="round" (click)="abrirPestanaEditar(x)">Editar Libro</ion-button>
+          <ion-button color="danger" shape="round" (click)="abrirPestanaBorrar(x)">Eliminar Libro</ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Card para confirmar eliminación -->
+  <ion-card *ngIf="pestanaEliminarLibro" class="eliminar">
+    <ion-card-header>
+      <ion-card-title>¿Quieres eliminar {{ libroSeleccionado.titulo }}?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="full" (click)="cancelarBorrar()">Cancelar</ion-button>
+      <ion-button expand="full" (click)="eliminarLibro()">Eliminar Libro</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Card para editar libro -->
+  <ion-card *ngIf="pestanaModificarLibro" class="editar">
+    <ion-item>
+      <ion-input [(ngModel)]="libroTemporal.ISBN" label="ISBN" labelPlacement="floating" placeholder="Ingrese el ISBN del libro"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="libroTemporal.titulo" label="Título" labelPlacement="floating" placeholder="Ingrese el nombre del libro"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="libroTemporal.autor" label="Autor" labelPlacement="floating" placeholder="Ingrese el nombre del autor"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select [(ngModel)]="libroTemporal.id_categoria" label="Categoría" labelPlacement="floating" placeholder="Seleccione una categoría">
+        <ion-select-option *ngFor="let categoria of listadoCategorias" [value]="categoria.id_categoria">{{ categoria.nombre_categoria }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input 
+        type="number" 
+        (ionInput)="validarInputNumerico($event)" 
+        (keydown)="prevenirCaracteresNoNumericos($event)" 
+        [(ngModel)]="libroTemporal.cantidad_paginas" 
+        label="Páginas" 
+        labelPlacement="floating" 
+        placeholder="Ingrese cantidad de páginas">
+      </ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-textarea [(ngModel)]="libroTemporal.sinopsis" class="input-desc" label="Sinopsis" labelPlacement="floating" placeholder="Ingrese una descripción"></ion-textarea>
+    </ion-item>
+    <ion-button color="light" (click)="ingresarImagen()">Ingrese La Portada <ion-icon slot="end" name="image-outline"></ion-icon></ion-button>
+    <img *ngIf="libroTemporal.portada" [src]="libroTemporal.portada" alt="sin image">
+    <ion-button color="primary" type="submit" shape="round" (click)="validarEdicionLibros()">Actualizar Libro</ion-button>
+    <ion-button color="primary" type="submit" shape="round" (click)="cancelarEditar()">Cancelar</ion-button>
+  </ion-card>
+</ion-content>

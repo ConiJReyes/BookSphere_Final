@@ -1,0 +1,40 @@
+.recomendaciones-content {
+    padding: 16px; /* Espaciado alrededor del contenido */
+    background-color: #f2dcb3; /* Color de fondo para la página */
+  }
+  
+  .recomendacion-card {
+    background-color: #f2dcb3; /* Fondo blanco para las tarjetas */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 16px; /* Espacio entre tarjetas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    transition: transform 0.3s; /* Transición suave al pasar el mouse */
+  }
+  
+  .recomendacion-card:hover {
+    transform: scale(1.02); /* Efecto de hover para tarjetas */
+  }
+  
+  .recomendacion-titulo {
+    font-size: 1.2rem; /* Tamaño de fuente para el título */
+    font-weight: bold; /* Negrita para el título */
+    color: #4a5568; /* Color del texto del título */
+  }
+  
+  .recomendacion-texto {
+    font-size: 0.9rem; /* Tamaño de fuente para el texto de la recomendación */
+    color: #4a5568; /* Color del texto de la recomendación */
+  }
+  
+  ion-footer {
+    display: flex; /* Usar flexbox para alinear botones */
+    justify-content: center; /* Centramos el botón */
+    padding: 10px; /* Espacio interior del pie */
+  }
+  
+  .no-recomendaciones {
+    text-align: center; /* Centramos el texto de advertencia */
+    margin-top: 20px; /* Espacio superior */
+    font-size: 1rem; /* Tamaño de fuente para el mensaje */
+  }
+  

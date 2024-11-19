@@ -1,0 +1,43 @@
+.book-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  max-height: 400px;  
+
+  .book-img {
+    height: 200px;  
+    width: 100%;
+    object-fit: cover; /* Ajusta la imagen para que llene el contenedor */
+    border-radius: 10px; /* Esquinas redondeadas */
+  }
+
+
+
+  ion-img {
+    height: 200px;  
+    width: 100%;
+    object-fit: cover; 
+    border-radius: 10px;
+  }
+
+  ion-card-header {
+    padding: 8px;
+    text-align: center;
+  }
+
+  ion-card-content {
+    padding: 8px;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  ion-card-title {
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 0;  
+    font-size: 0.9rem;
+  }
+}

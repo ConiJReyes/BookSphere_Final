@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reseña Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card class="review-card">
+    <ion-card-header>
+      <ion-card-title>{{resena.titulo}}</ion-card-title>
+      <ion-note class="review-date">{{resena.fecha_elaboracion_resena | date: 'mediumDate'}}</ion-note>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p class="review-text">{{resena.texto_resena}}</p>
+    </ion-card-content>
+
+    <div class="button-group">
+      <ion-button color="danger" expand="block" (click)="eliminar(resena.id_resena)">Eliminar</ion-button>
+      <ion-button expand="block" (click)="abrirPestanaModificar()">Modificar</ion-button>
+    </div>
+  </ion-card>
+
+  <div *ngIf="pestana" class="pestanaModificar">
+    <ion-card>
+      <ion-card-title>Modificar Reseña</ion-card-title>
+      <ion-item class="modify-item">
+        <ion-textarea
+          [(ngModel)]="resena.texto_resena"
+          label="Reseña"
+          labelPlacement="floating"
+          placeholder="Mantén un tono respetuoso en tu reseña"
+          rows="5">
+        </ion-textarea>
+      </ion-item>
+
+      <div class="button-group">
+        <ion-button color="light" (click)="cancelarModificacion()">Cancelar</ion-button>
+        <ion-button (click)="modificar(resena.id_resena)">Modificar</ion-button>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

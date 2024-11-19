@@ -1,0 +1,60 @@
+ion-content {
+  background-color: #f6e9d1; 
+  padding: 40px 40px
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px; 
+  background-color: #ffffff; 
+  max-width: 500px; 
+  margin: 20px auto; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+ion-button {
+  margin-top: 10px; 
+}
+
+h1 {
+  color: #6D4C41;
+  text-align: center;
+  font-size: 30px;
+  line-height: 1.2;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+p {
+  color: red;
+  font-size: smaller;
+  margin-top: 5px; 
+}
+
+.container-p {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+  margin-top: 15px; 
+}
+
+.perfil-imagen {
+  width: 120px;
+  height: 120px; 
+  border-radius: 50%; /* Hace que la imagen sea redonda */
+  object-fit: cover; /* Asegura que la imagen se ajuste dentro del contenedor redondo */
+  border: 3px solid #dfaa64; /* Borde alrededor de la imagen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para darle un efecto de profundidad */
+  transition: transform 0.3s ease; /* Animación para un efecto suave */
+}
+
+.perfil-imagen:hover {
+  transform: scale(1.05); /* Aumenta el tamaño al pasar el cursor por encima */
+}

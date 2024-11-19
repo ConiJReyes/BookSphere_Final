@@ -1,0 +1,50 @@
+.portada-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.portada-img {
+  width: 150px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px; 
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; 
+  padding: 10px; 
+}
+
+.custom-button {
+  --background: #dfaa64; 
+  --color: #ffffff; 
+  --border-radius: 12px; 
+  --padding: 10px 20px; 
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  --background-activated: #bf8a45; 
+}
+
+.info-card {
+  width: 95%;
+  background-color: #f2dcb3; 
+  border-radius: 10px; 
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.descripcion-libro-api {
+  width: 95%; 
+  background-color: #f2dcb3; 
+  border-radius: 10px; 
+  padding: 10px; 
+}
+
+.reseñas-titulo {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0 10px;
+  color: #4a5568;
+}

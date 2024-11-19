@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ libros[0]?.nombre_categoria }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md="6" *ngFor="let libro of libros">
+        <ion-card (click)="irADetallesLibro(libro)" class="book-card">
+          <div class="image-container">
+            <img [src]="libro.portada" *ngIf="libro.portada" alt="Portada del libro" class="book-image">
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{ libro.titulo }}</ion-card-title>
+            <ion-card-subtitle>{{ libro.autor }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ libro.sinopsis }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

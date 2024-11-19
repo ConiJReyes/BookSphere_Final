@@ -1,0 +1,29 @@
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  overflow: hidden; 
+}
+
+.book-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%; 
+  object-fit: cover; 
+  border-radius: 10px;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+}
+
+ion-card-header {
+  flex: 1; 
+}
+
+ion-card-content {
+  flex: 1;
+}

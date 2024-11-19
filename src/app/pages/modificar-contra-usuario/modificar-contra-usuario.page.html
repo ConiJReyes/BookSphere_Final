@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cambiar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <!-- Formulario de Cambiar Contrasena -->
+    <form>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">Contraseña Antigua</ion-label>
+        <ion-input
+          [type]="mostrarContraAntigua ? 'text' : 'password'"
+          [(ngModel)]="contraAntigua"
+          labelPlacement="floating"
+          name="password"
+          placeholder="Ingrese la contraseña"
+          ><ion-button fill="clear" slot="end" (click)="togglemostrarContraAntigua()">
+            <ion-icon [name]="mostrarContraAntigua ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">Contraseña Nueva</ion-label>
+        <ion-input
+          [type]="mostrarNueva ? 'text' : 'password'"
+          [(ngModel)]="contraNueva"
+          labelPlacement="floating"
+          name="password"
+          placeholder="Ingrese la contraseña"
+          ><ion-button fill="clear" slot="end" (click)="togglemostrarNueva()">
+            <ion-icon [name]="mostrarNueva ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">Repetir Contraseña Nueva</ion-label>
+        <ion-input
+          [type]="mostrarNuevaRep ? 'text' : 'password'"
+          [(ngModel)]="contraRepNueva"
+          labelPlacement="floating"
+          name="password"
+          placeholder="Ingrese la contraseña"
+          ><ion-button fill="clear" slot="end" (click)="togglemostrarmostrarNuevaRep()">
+            <ion-icon [name]="mostrarNuevaRep ? 'eye-off' : 'eye'"></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+
+      <!-- Botón de Inicio de sesión -->
+      <ion-button
+        expand="full"
+        style="--background: #dfaa64"
+        type="submit"
+        (click)="cambiarContra()"
+        shape="round">
+        Cambiar Contraseña
+      </ion-button>
+
+      <div class="container-p">
+        <p *ngIf="contraAntiguaValidada" >-La contraseña anterior no coincide con la anterior</p>
+        <p *ngIf="contraDebeSerDiferenteAnterior">-La contraseña nueva no debe ser igual a la anterior</p>
+        <p *ngIf="contraIgual" >-Las contraseñas deben ser iguales</p>
+        <p *ngIf="contraValida">-La contraseña debe tener al menos 8 caracteres, incluyendo una
+          mayúscula, una minúscula, un número y un carácter especial.</p>
+      </div>
+      
+    </form>
+  </div>
+</ion-content>

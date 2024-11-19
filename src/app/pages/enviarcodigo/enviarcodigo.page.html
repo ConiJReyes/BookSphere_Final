@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+
+    <img src="assets/img/logoapp.png" alt="Logo" class="app-logo" />
+
+    <!-- Formulario de Iniciar Sesión -->
+    <form>
+
+      <h1>Enviar codigo de Verificacion</h1>
+
+      <ion-item class="form-item">
+        <ion-label position="floating">Envir codigo</ion-label>
+        <ion-input
+          [(ngModel)]="codigo"
+          name="codigo"
+          labelPlacement="floating"
+          placeholder="Ingrese el codigo que se le envio por correo">
+      </ion-input>
+      </ion-item>
+
+      <ion-button expand="full" style="--background: #dfaa64;" (click)="enviarCodigo(codigo)">Enviar Codigo</ion-button>
+
+    </form>
+
+
+
+
+  </div>
+</ion-content>

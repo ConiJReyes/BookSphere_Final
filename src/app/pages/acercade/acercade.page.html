@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nosotros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <img src="assets/img/logoapp.png" >
+    <p>Somos un equipo que tenía el sueño de que todo el mundo pudiera tener un recordatorio y bitacora de cada libro que sea leído.
+      Por eso mismo creamos Bookshere para cumplir eso, una aplicación simple, intuitiva y rápida para poder tener una agenda de todos tus libros.
+      Y de algunos que quieras leer a futuro.
+    </p>
+
+    <ion-button style="--background: #dfaa64;" shape="round" [routerLink]="['/recomendaciones']">Recomendaciones</ion-button>
+  </div>
+</ion-content>

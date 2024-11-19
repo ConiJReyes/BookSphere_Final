@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/librosGuardados"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles del Libro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="libro-detalle-card" *ngIf="libro">
+    <!-- Imagen centrada -->
+    <div class="portada-container">
+      <ion-img *ngIf="libro?.portada" [src]="libro?.portada" class="portada-img"></ion-img>
+    </div>
+
+    <ion-card-header>
+      <ion-card-title>{{ libro?.titulo }}</ion-card-title>
+      <ion-card-subtitle>ISBN: {{ isbn }}</ion-card-subtitle>
+      <ion-icon name="close-circle-outline" (click)="eliminarGuardados()"></ion-icon>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Título:</strong> {{ libro?.titulo }}</p>
+      <p><strong>Autor:</strong> {{ libro?.autor }}</p>
+      <p><strong>Cantidad de Paginas:</strong> {{ libro?.cantidad_paginas }}</p>
+      <ion-item lines="none">
+        <p>{{ libro?.sinopsis }}</p>
+      </ion-item>
+
+      <ion-button (click)="favorito()" class="boton-favorito">
+        <ion-icon [name]="libro.es_favorito ? 'heart' : 'heart-outline'" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-item>
+        <ion-select label="Estado Libro" placeholder="Seleccionar Estado Libro" [(ngModel)]="estadoLibro"
+          (ionChange)="cambiarEstadoLibro($event)">
+          <ion-select-option value="leido">Leido</ion-select-option>
+          <ion-select-option value="leyendo">Leyendo</ion-select-option>
+          <ion-select-option value="por leer">Por Leer</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div *ngIf="estadoLibro === 'leyendo'">
+        <div slot="label">Pagina Actual: <ion-input type="number" (ionInput)="validarInput($event)"
+            (keypress)="enviarConEnter($event)" [(ngModel)]="paginaActual"></ion-input> </div>
+        <ion-range [(ngModel)]="paginaActual" style="margin-top: 20px;" [min]="0" [max]="cantidadPaginas"
+          (ionChange)="cambiarPaginaActual($event)"></ion-range>
+      </div>
+
+      <div *ngIf="estadoLibro === 'leido'">
+        <ion-label></ion-label>
+
+        <ion-textarea [(ngModel)]="resena" label="Reseña" labelPlacement="floating" placeholder="Recuerda no escribir mensajes de odio o alguna obsenidad, manteniendo el respeto a todos en la aplicacion"  rows="5"></ion-textarea>
+        
+      </div>
+
+      <ion-button *ngIf="estadoLibro === 'leido'" (click)="guardarResena()"
+        class="boton-resena">
+        Guardar Reseña
+      </ion-button>
+
+    
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

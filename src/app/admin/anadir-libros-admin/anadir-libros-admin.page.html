@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Añadir Libros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-label class="title">Añadir Libro</ion-label>
+    
+    <ion-item>
+      <ion-input 
+        [(ngModel)]="isbnLibAnadir" 
+        label="ISBN" 
+        labelPlacement="floating"
+        placeholder="Ingrese el ISBN del libro">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        [(ngModel)]="nomLibAnadir" 
+        label="Título" 
+        labelPlacement="floating"
+        placeholder="Ingrese el nombre del libro">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        [(ngModel)]="autorLibAnadir" 
+        label="Autor" 
+        labelPlacement="floating"
+        placeholder="Ingrese el nombre del autor">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="categoriaLibAnadir" label="Categoría" labelPlacement="floating" placeholder="Seleccione una categoría">
+        <ion-select-option *ngFor="let categoria of listadoCategorias" [value]="categoria.id_categoria">{{ categoria.nombre_categoria }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input 
+        type="number" 
+        [(ngModel)]="paginasLibAnadir" 
+        (ionInput)="validarInputNumerico($event)" 
+        (keydown)="prevenirCaracteresNoNumericos($event)" 
+        label="Páginas" 
+        labelPlacement="floating" 
+        placeholder="Ingrese cantidad de páginas">
+      </ion-input>  
+    </ion-item>
+    
+
+    <ion-item>
+      <ion-textarea 
+        [(ngModel)]="sinopsisLibAnadir" 
+        class="input-desc" 
+        label="Sinopsis" 
+        labelPlacement="floating"
+        placeholder="Ingrese una descripción">
+      </ion-textarea>
+    </ion-item>
+    
+    <div class="image-upload">
+      <ion-button color="light" (click)="ingresarImagen()">
+        Ingrese La Portada <ion-icon slot="end" name="image-outline"></ion-icon>
+      </ion-button>
+      <img *ngIf="urlImagen" [src]="urlImagen" alt="sin imagen" class="uploaded-image">
+    </div>
+
+    <ion-button class="custom-button" shape="round" (click)="validacionAnadirLibro()">Añadir Libro</ion-button>
+
+
+  </div>
+</ion-content>

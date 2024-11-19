@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ajustes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-list>
+      <ion-item>
+        <ion-toggle (ionChange)="mostrarNotifications($event)">Notificaciones</ion-toggle><br /><br />
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="cerrarSesion()">Cerrar Sesión<ion-icon slot="start" name="exit-outline"></ion-icon></ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+

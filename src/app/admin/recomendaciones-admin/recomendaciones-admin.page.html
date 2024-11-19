@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Recomendaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="recomendaciones-content">
+  <ion-row>
+    <ion-col size="12" size-md="6" size-lg="4" *ngFor="let x of recomendaciones">
+      <ion-card class="recomendacion-card">
+        <ion-card-header>
+          <ion-card-title class="recomendacion-titulo">{{ x.titulo_recomendacion }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p class="recomendacion-texto">{{ x.texto_recomendacion }}</p>
+        </ion-card-content>
+        <ion-footer>
+          <ion-button color="danger" shape="round" (click)="eliminarRecomendacion(x)">
+            Eliminar Recomendacion
+          </ion-button>
+        </ion-footer>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-text *ngIf="recomendaciones.length === 0" color="danger" class="no-recomendaciones">
+    <p>No se encontraron libros para la búsqueda realizada.</p>
+  </ion-text>
+</ion-content>

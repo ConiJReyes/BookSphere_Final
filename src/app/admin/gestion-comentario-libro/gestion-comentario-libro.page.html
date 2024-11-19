@@ -1,0 +1,35 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Gestionar Reseñas</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="ion-padding">
+    <ion-card *ngFor="let x of resenas" class="comentario-card">
+      <ion-card-header>
+        <p>{{x.id_resena}}</p>
+        <ion-card-title>Reseña de: {{x.username}}</ion-card-title>
+        <ion-card-subtitle>Libro: {{x.titulo}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{x.fecha_elaboracion_resena | date:'short'}}</p>
+        <p>{{x.texto_resena}}</p>
+      </ion-card-content>
+      <ion-footer>
+        <ion-button (click)="banearResena(x, x.id_resena)" >Banear Comentario</ion-button>
+
+        <ion-icon *ngIf="x.estadoBan" name="thumbs-down-outline" color="danger" slot="end"></ion-icon>
+
+        <ion-button (click)="borrarResena(x)" >Borrar Reseña</ion-button>
+
+
+      </ion-footer>
+      
+    </ion-card>
+  </ion-content>
+
+</div>

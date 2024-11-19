@@ -1,0 +1,44 @@
+.book-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  ion-img {
+    height: 200px;  
+    width: 100%; 
+    object-fit: cover; 
+    border-radius: 10px; 
+  }
+
+  ion-card-header {
+    padding: 8px;
+    text-align: center;
+    flex-grow: 0;  
+  }
+
+  ion-card-content {
+    padding: 8px;
+    text-align: center;
+    flex-grow: 1;  
+  }
+
+  ion-card-title {
+    font-size: 0.9rem; 
+  }
+
+  p {
+    font-size: 0.8rem; 
+    margin: 0;  
+  }
+
+  ion-button.boton-detalles {
+    font-size: 0.8rem;  
+    --background: #dfaa64;  
+    --color: #ffffff; 
+    border-radius: 15px; 
+    padding: 8px 16px;  
+  }
+  
+
+  height: 350px; 
+}

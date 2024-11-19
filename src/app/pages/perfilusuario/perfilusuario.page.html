@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <img [src]="usuarioPerfil.foto_perfil" class="perfil-imagen">
+    <h2>{{usuarioPerfil.username}}</h2>
+    <p>{{usuarioPerfil.correo_user}}</p>
+    <ion-button style="--background: #dfaa64;" (click)="irModificarPerfil(idusuario)">
+      <ion-icon name="pencil" slot="start"></ion-icon>
+      Modificar
+    </ion-button>
+  </div>
+
+  <ion-segment (ionChange)="onSegmentChange($event)" color="dark" value="libros">
+    <ion-segment-button value="libros">
+      <ion-label>Libros Guardados</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="resenas">
+      <ion-label>Reseñas Usuario</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectedSegment === 'libros'">
+    <ion-list>
+      <ion-item *ngFor="let libro of librosGuardados" (click)="irADetallesLibroGuardado(libro.ISBN)">
+        <div class="card-libro">
+          <img *ngIf="libro.portada" [src]="libro.portada" alt="Portada del libro" class="img-libro">
+          <div>
+            <h2 class="titulo-libro">{{ libro.titulo }}</h2>
+            <p>Autor: {{ libro.autor }}</p>
+            <p>Categoría: {{ libro.nombre_categoria }}</p>
+            <p>Estado: {{ libro.estado_lectura }}</p>
+            <p *ngIf="libro.estado_lectura === 'leyendo'">Página actual: {{ libro.pagina_actual }}</p>
+            <ion-icon *ngIf="libro.es_favorito" name="heart" color="danger"></ion-icon>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="selectedSegment === 'resenas'">
+    <ion-list>
+      <ion-item *ngFor="let x of listaResenas">
+        <div class="card-resena" (click)="irCadaResena(x)">
+          <div class="resena-content">
+            <h2>{{ x.titulo }}</h2>
+            <p>{{ x.texto_resena }}</p>
+          </div>
+          <div class="resena-info">
+            <p class="fecha">{{ x.fecha_elaboracion_resena | date: 'mediumDate' }}</p>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+  
+</ion-content>
+
